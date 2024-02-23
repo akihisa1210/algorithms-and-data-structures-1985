@@ -1,3 +1,5 @@
+import { Stopwatch } from "../../helpers/stopwatch.ts";
+
 interface IBuffer<T> {
   deposit(value: T): boolean;
   fetch(): T | null;
@@ -67,23 +69,6 @@ class CirclerBuffer<T> implements IBuffer<T> {
 
   show(): void {
     console.log(`Current buffer: ${this.queue}`);
-  }
-}
-
-class Stopwatch {
-  private startTime = 0;
-  private endTime = 0;
-
-  start(): void {
-    this.startTime = Date.now();
-  }
-
-  stop(): void {
-    this.endTime = Date.now();
-  }
-
-  getElapsedTime(): number {
-    return this.endTime - this.startTime;
   }
 }
 
