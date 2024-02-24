@@ -3,7 +3,7 @@ import { Items } from "../helpers/Items.ts";
 
 // 0番目からi-1番目まではソート済み、i番目からn-1番目までは未ソート
 // i番目の項目を0番目からi-1番目までの適切な位置に挿入する
-const binaryInsertionSort = (items: Items): Items => {
+export const binaryInsertionSort = (items: Items): Items => {
   for (let i = 0; i < items.length; i++) {
     const x = items[i];
     // x（i番目の項目）を、ソート済みの配列の適切な位置に挿入する

@@ -3,7 +3,7 @@ import { Items } from "../helpers/Items.ts";
 
 // 0番目からi-1番目まではソート済み、i番目からn-1番目までは未ソート
 // i番目の項目を0番目からi-1番目までの適切な位置に挿入する
-const insertionSort = (items: Items): Items => {
+export const insertionSort = (items: Items): Items => {
   for (let i = 0; i < items.length; i++) {
     const x = items[i];
     let j = i;
@@ -26,4 +26,15 @@ Deno.test("insertionSort", () => {
   const items = [5, 3, 4, 1, 2];
   const sortedItems = insertionSort(items);
   assertEquals(sortedItems, [1, 2, 3, 4, 5]);
+});
+
+Deno.test("insertionSort (large items)", () => {
+  const items = Array.from({ length: 100000 }, () =>
+    Math.floor(Math.random() * 100000)
+  );
+  const sortedItems = insertionSort([...items]);
+  assertEquals(
+    sortedItems,
+    items.sort((a, b) => a - b)
+  );
 });
